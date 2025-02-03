@@ -51,3 +51,5 @@
 
                             dynamic responseObject = Newtonsoft.Json.JsonConvert.DeserializeObject(responseBody);
 }
+
+https://www.aspsnippets.com/Articles/881/GridView-CRUD-Select-Insert-Edit-Update-Delete-using-Single-Stored-Procedure-in-ASPNet/
