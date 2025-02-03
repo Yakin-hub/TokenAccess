@@ -36,4 +36,18 @@
                         // Set the access token
 
                         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+                         string JsonData = Newtonsoft.Json.JsonConvert.SerializeObject(nonExe_Payment);
+                        var content = new StringContent(JsonData, Encoding.UTF8, "application/json");
+                        HttpResponseMessage response = client.PostAsync(baseUrl, content).Result;
+
+                        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            // Read and process the response
+
+                            string responseBody = response.Content.ReadAsStringAsync().Result;
+
+                            dynamic responseObject = Newtonsoft.Json.JsonConvert.DeserializeObject(responseBody);
 }
